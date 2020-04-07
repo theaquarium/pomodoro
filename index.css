@@ -1,0 +1,225 @@
+html, body {
+	margin: 0;
+}
+
+html {
+	font-size: 1.8vmin;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	
+	height: 100vh;
+	width: 100%;
+	background: #efefef;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+	overflow: hidden;
+}
+
+.Circle {
+	font-size: 5.5rem;
+	font-weight: 900;
+	color: #222;
+	background: #f9f9f9;
+	border-radius: 50%;
+	border: 0.3rem solid #222;
+
+	width: 33vmin;
+	height: 33vmin;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1rem;
+
+	cursor: pointer;
+	transition: background 0.2s;
+	font-family: 'Inconsolata', monospace;
+}
+
+.Circle:hover {
+	background: #cce2ff;
+}
+
+.Circle:hover.active {
+	background: #b0d0ff;
+}
+
+.CircleContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Menu {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	align-items: center;
+	bottom: 0;
+	margin-bottom: 1.8rem;
+	color: #222;
+}
+
+.AutoMode, .Info {
+	font-size: calc(2vmin + 8px);
+	font-weight: 700;
+	cursor: pointer;
+	text-decoration: underline;
+	margin: 0 4rem;
+}
+
+.AutoMode:hover, .AutoMode:focus, .Info:hover, .Info:focus {
+	color: rgb(82, 82, 82);
+}
+
+.PauseBox {
+	font-size: 5rem;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+
+.PauseBox:hover {
+	color: rgb(82, 82, 82);
+}
+
+/* https://stackoverflow.com/a/4407335/8005366 */
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	  -webkit-user-select: none; /* Safari */
+	   -khtml-user-select: none; /* Konqueror HTML */
+		 -moz-user-select: none; /* Old versions of Firefox */
+		  -ms-user-select: none; /* Internet Explorer/Edge */
+			  user-select: none; /* Non-prefixed version, currently
+									supported by Chrome, Opera and Firefox */
+}
+
+.active {
+	background: #b0d0ff;
+}
+
+.Modal {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99;
+	transition: top 0.7s ease-in-out 0.1s;
+	font-size: calc(1vmin + 8px);
+	top: 0;
+}
+
+.ModalBack {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.6);
+	transition: background 0.4s ease-in-out;
+}
+
+.Modal.is-inactive {
+	top: -100vh;
+}
+
+.Modal.is-inactive > .ModalBack {
+	background: rgba(0, 0, 0, 0);
+}
+
+.ModalWindow {
+	background: #eeeeee;
+	height: 70vmin;
+	width: 70vmin;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 0.5em;
+	z-index: 100;
+}
+
+@media (max-width: 550px) { 
+	.ModalWindow {
+		width: 100%;
+		height: 100vh;
+	}
+}
+
+.ModalClose {
+	font-size: 1.4em;
+	padding: 0.7em 1.2em;
+	background: #fafafa;
+	color: #2a2a2a;
+	cursor: pointer;
+	border-radius: 1em;
+	font-weight: 700;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.25s ease-out;
+	margin: 1em;
+}
+
+.ModalClose:hover,
+.ModalClose:active {
+	background-color: #cce2ff;
+	box-shadow: 0px 10px 20px rgba(32, 32, 32, 0.459);
+	transform: translateY(-0.25em);
+}
+
+.ModalTitle {
+	font-size: 2.5em;
+	font-weight: 900;
+	color: #2a2a2a;
+	margin: 1em;
+	text-align: center;
+}
+
+.ModalBody {
+	padding: 2em;
+	font-size: 1.3em;
+	color: #2a2a2a;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.ModalBody > a {
+	text-decoration: underline;
+	color: #555555;
+}
+
+.ModalBody > a:active {
+	text-decoration: underline;
+	color: #333;
+}
+
+.Log {
+	border: 1px solid #222;
+	margin-top: 1.5em;
+	font-family: 'Inconsolata', monospace;
+}
+
+.LogTitle {
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 1em 0;
+}
+
+.LogItem {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.3em;
+}
+
+.LogItem > span {
+	margin: 0.5em 1em;
+}
