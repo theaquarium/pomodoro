@@ -198,6 +198,23 @@ body {
 	color: #333;
 }
 
+.Copyright > a {
+	text-decoration: underline;
+	color: #555555;
+}
+
+.Copyright > a:active {
+	text-decoration: underline;
+	color: #333;
+}
+
+.Copyright {
+	width: 100%;
+	text-align: center;
+	margin-top: 1.5em;
+	font-size: 0.85em;
+}
+
 .Log {
 	border: 1px solid #222;
 	margin-top: 1.5em;
