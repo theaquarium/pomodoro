@@ -239,4 +239,5 @@ body {
 
 .LogItem > span {
 	margin: 0.5em 1em;
+	text-align: right;
 }
