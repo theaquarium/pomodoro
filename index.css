@@ -59,7 +59,6 @@ body {
 	position: absolute;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
 	width: 100%;
 	align-items: center;
 	bottom: 0;
@@ -68,6 +67,29 @@ body {
 }
 
 .AutoMode, .Info {
+	font-size: calc(2vmin + 7px);
+	padding: 0.5em 0.9em;
+	background: #fafafa;
+	color: #2a2a2a;
+	cursor: pointer;
+	border-radius: 0.75em;
+	font-weight: 700;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.25s ease-out;
+	margin: 1.3em 0;
+	text-align: center;
+}
+
+.AutoMode:hover,
+.AutoMode:active,
+.Info:hover,
+.Info:active {
+	background-color: #cce2ff;
+	box-shadow: 0px 10px 20px rgba(32, 32, 32, 0.459);
+	transform: translateY(-0.25em);
+}
+
+/* .AutoMode, .Info {
 	font-size: calc(2vmin + 8px);
 	font-weight: 700;
 	cursor: pointer;
@@ -77,12 +99,20 @@ body {
 
 .AutoMode:hover, .AutoMode:focus, .Info:hover, .Info:focus {
 	color: rgb(82, 82, 82);
+} */
+
+.AutoModeContainer, .InfoContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
 }
 
 .PauseBox {
 	font-size: 5rem;
 	cursor: pointer;
 	transition: color 0.2s;
+	flex: 0;
 }
 
 .PauseBox:hover {
@@ -145,7 +175,7 @@ body {
 	z-index: 100;
 }
 
-@media (max-width: 550px) { 
+@media (max-width: 700px) { 
 	.ModalWindow {
 		width: 100%;
 		height: 100vh;
@@ -181,7 +211,7 @@ body {
 }
 
 .ModalBody {
-	padding: 2em;
+	padding: 1em 2em;
 	font-size: 1.3em;
 	color: #2a2a2a;
 	overflow-y: auto;
@@ -215,7 +245,29 @@ body {
 	font-size: 0.85em;
 }
 
-.Log {
+.ResetTimer {
+	font-size: 1.1em;
+	padding: 0.4em 0.8em;
+	background: #fafafa;
+	color: #2a2a2a;
+	cursor: pointer;
+	border-radius: 0.6em;
+	font-weight: 700;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.25s ease-out;
+	margin: 1.3em auto;
+	text-align: center;
+	width: 10em;
+}
+
+.ResetTimer:hover,
+.ResetTimer:active {
+	background-color: #cce2ff;
+	box-shadow: 0px 10px 20px rgba(32, 32, 32, 0.459);
+	transform: translateY(-0.25em);
+}
+
+/* .Log {
 	border: 1px solid #222;
 	margin-top: 1.5em;
 	font-family: 'Inconsolata', monospace;
@@ -240,4 +292,80 @@ body {
 .LogItem > span {
 	margin: 0.5em 1em;
 	text-align: right;
+} */
+
+.ServerInfo {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 0.5em;
+}
+
+.ServerInfoTitle {
+	font-size: 1.2em;
+	font-family: 'Inconsolata', monospace;
+}
+
+.ServerInfoInput {
+	font-size: 0.85em;
+	font-family: 'Inconsolata', monospace;
+	padding: 0.3em;
+	margin-top: 0.4em;
+	width: 70%;
+}
+
+.ServerInfoStatus {
+	font-size: 0.9em;
+	font-family: 'Inconsolata', monospace;
+	margin-top: 0.4em;
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+  	word-break: break-all;
+  	word-break: break-word;
+	hyphens: auto;
+	text-align: center;
+}
+
+.Green {
+	color: #20a000;
+}
+
+.Yellow {
+	color: #c2ae00;
+}
+
+.Red {
+	color: #c90000;
+}
+
+.ClientInfo {
+	font-size: calc(1vmin + 10px);
+	font-family: 'Inconsolata', monospace;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}
+
+.QRBox {
+	margin-top: 2.5em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.QRTitle {
+	font-size: 0.87em;
+	text-align: center;
+	width: 100%;
+}
+
+.QRCode {
+	margin: 1em;
+}
+
+.is-hidden {
+	display: none;
 }

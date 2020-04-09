@@ -6,6 +6,7 @@
 	<title>Pomodoro Timer</title>
 	<link rel="stylesheet" href="index.css">
 	<script src="index.js"></script>
+	<script src="qrcode.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/164d8d8993.js" crossorigin="anonymous"></script>
 	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png?v=rMJmlKm0l7">
@@ -27,14 +28,18 @@
 		<div class="LongBreak Circle noselect">15:00</div>
 	</div>
 	<div class="Menu">
-		<div class="AutoMode">
-			Auto Mode Off
+		<div class="AutoModeContainer">
+			<div class="AutoMode noselect">
+				Auto Mode Off
+			</div>
 		</div>
 		<div class="PauseBox">
 			<i class="fas fa-play"></i>
 		</div>
-		<div class="Info">
-			More Info
+		<div class="InfoContainer">
+			<div class="Info noselect">
+				Options
+			</div>
 		</div>
 	</div>
 	<div class="Modal">
@@ -52,14 +57,27 @@
 					<br>
 					See code and license for this site on <a href="https://github.com/theaquarium/pomodoro">GitHub</a>
 				</div>
-				<div class="Log">
+				<div class="Controls">
+					<div class="ResetTimer noselect">Reset Timers</div>
+				</div>
+				<!-- <div class="Log">
 					<div class="LogTitle">
 						Activity Log
 					</div>
+				</div> -->
+				<div class="ServerInfo">
+					<div class="ServerInfoTitle">Connect to Server (optional):</div>
+					<input class="ServerInfoInput" type="text">
+					<div class="ServerInfoStatus"></div>
+				</div>
+				<div class="QRBox is-hidden">
+					<div class="QRTitle">Scan this QR code to open the timer on another device:</div>
+					<div class="QRCode"></div>
 				</div>
 			</div>
 			<div class="ModalClose noselect">OK</div>
 		</div>
 	</div>
+	<div class="ClientInfo"></div>
 </body>
 </html>
