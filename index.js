@@ -26,15 +26,6 @@ window.addEventListener('load', () => {
 	if (wsUrl) {
 		document.querySelector('.ServerInfoInput').value = decodeURI(wsUrl);
 	}
-
-	let minUnit = Math.min(window.innerHeight, window.innerWidth);
-	let qrCode = new QRCode(document.querySelector('.QRCode'), {
-		width: Math.max(250, 0.35*minUnit),
-		height: Math.max(250, 0.35*minUnit),
-		colorDark : "#222222",
-		colorLight : "#eeeeee",
-		correctLevel : QRCode.CorrectLevel.H
-	});
 	
 	const resetTimers = () => {
 		document.querySelectorAll('.active').forEach(el => {
@@ -195,6 +186,19 @@ window.addEventListener('load', () => {
 		if (newColor) element.classList.add(newColor);
 	}
 
+	const makeQR = () => {
+		document.querySelector('.QRCode').innerHTML = '';
+		let minUnit = Math.min(window.innerHeight, window.innerWidth);
+		let qrCode = new QRCode(document.querySelector('.QRCode'), {
+			width: Math.max(250, 0.35*minUnit),
+			height: Math.max(250, 0.35*minUnit),
+			colorDark : "#222222",
+			colorLight : "#eeeeee",
+			correctLevel : QRCode.CorrectLevel.H
+		});
+		qrCode.makeCode(window.location.toString());
+	}
+
 	document.querySelector('.Pomodoro').addEventListener('click', e => {
 		disableAuto();
 		if (websocket) {
@@ -308,7 +312,7 @@ window.addEventListener('load', () => {
 						color('Green', clientInfo);
 						urlParams.set('s', encodeURI(url));
 						window.history.replaceState({}, '', '?' + urlParams.toString());
-						qrCode.makeCode(window.location);
+						makeQR();
 						document.querySelector('.QRBox').classList.remove('is-hidden');
 						setTimeout(() => {
 							document.querySelector('.Modal').classList.add('is-inactive');
@@ -404,16 +408,5 @@ window.addEventListener('load', () => {
 		document.querySelector('.Modal').classList.remove('is-inactive');
 	});
 
-	window.addEventListener('resize', () => {
-		minUnit = Math.min(window.innerHeight, window.innerWidth);
-		document.querySelector('.QRCode').innerHTML = '';
-		qrCode = new QRCode(document.querySelector('.QRCode'), {
-			width: Math.max(250, 0.35*minUnit),
-			height: Math.max(250, 0.35*minUnit),
-			colorDark : "#222222",
-			colorLight : "#eeeeee",
-			correctLevel : QRCode.CorrectLevel.H
-		});
-		qrCode.makeCode(window.location);
-	});
+	window.addEventListener('resize', makeQR);
 });
